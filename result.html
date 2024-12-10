@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả</title>
+    <link rel="stylesheet" href="./css/result.css">
+</head>
+
+<body>
+
+    <div id="result-container">
+        <h1>Kết quả của bạn</h1>
+        <div id="score-result"></div>
+        <div id="subject-result"></div>
+
+        <!-- Container cho các câu hỏi và đáp án -->
+        <div id="answers-container"></div>
+
+        <button onclick="goBack()">Trở lại trang danh sách môn</button>
+    </div>
+
+    <script>
+        // Lấy tham số từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = parseFloat(urlParams.get('score')); // Lấy điểm từ URL
+        const subjectId = urlParams.get('subject'); // Lấy tên môn học từ URL
+
+        // Hiển thị điểm và môn học
+        document.getElementById('score-result').textContent = `Điểm của bạn: ${score}`;
+        document.getElementById('subject-result').textContent = `Môn học: ${subjectId}`;
+
+        // Kiểm tra xem subjectId có hợp lệ không
+        if (!subjectId) {
+            alert('Môn học không hợp lệ!');
+            window.location.href = 'index.php'; // Trở lại trang danh sách môn nếu không hợp lệ
+        }
+
+        // Kiểm tra xem điểm có hợp lệ không
+        if (isNaN(score) || score < 0) {
+            alert('Điểm không hợp lệ!');
+            window.location.href = 'index.php'; // Trở lại trang danh sách môn nếu điểm không hợp lệ
+        }
+
+        // Tải dữ liệu câu hỏi và đáp án từ tệp JS tương ứng
+        const quizFilePath = `Quizz/${subjectId}.js`;
+
+        async function loadQuizData() {
+            try {
+                const response = await fetch(quizFilePath);
+                if (!response.ok) {
+                    throw new Error('Không thể tải dữ liệu câu hỏi và đáp án.');
+                }
+                const quizData = await response.json();
+                displayAnswers(quizData);
+                saveResult(1, subjectId, score); // Lưu kết quả ngay sau khi tải dữ liệu câu hỏi
+            } catch (error) {
+                console.error('Lỗi:', error);
+            }
+        }
+
+        // Hàm hiển thị câu hỏi và đáp án
+        function displayAnswers(questions) {
+            const answersContainer = document.getElementById('answers-container');
+            questions.forEach((question, index) => {
+                const answerElement = document.createElement('div');
+                answerElement.classList.add('answer');
+                answerElement.innerHTML = ` 
+                    <p>${index + 1}. ${question.Text}</p>
+                    <button onclick="showAnswer(${index})">Hiển thị đáp án</button>
+                    <div id="answer-${index}" style="display: none;">Đáp án: ${question.Answers.find(answer => answer.Id === question.AnswerId).Text}</div>
+                `;
+                answersContainer.appendChild(answerElement);
+            });
+        }
+
+        // Hàm để hiển thị đáp án
+        function showAnswer(index) {
+            const answerElement = document.getElementById(`answer-${index}`);
+            answerElement.style.display = 'block';
+        }
+
+        // Hàm quay lại trang danh sách môn
+        function goBack() {
+            window.location.href = 'index.php'; // Trở lại trang danh sách môn
+        }
+
+        // Lưu kết quả ngay lập tức khi trang được tải
+        loadQuizData(); // Lưu kết quả sau khi câu hỏi được tải
+    </script>
+</body>
+
+</html>

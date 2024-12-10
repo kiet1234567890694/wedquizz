@@ -1,0 +1,111 @@
+/* Cấu trúc chung */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container cho toàn bộ nội dung */
+#result-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+/* Hiển thị điểm và môn học */
+#score-result {
+    font-size: 24px;
+    font-weight: 600;
+    color: #00aaff;
+    margin-bottom: 20px;
+}
+
+#subject-result {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Hiệu ứng cho nút trở lại */
+button {
+    padding: 12px 25px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Hiển thị câu hỏi và đáp án */
+#answers-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.answer {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.answer:hover {
+    background-color: #e6f7ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button#show-answer-btn {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#show-answer-btn:hover {
+    background-color: #218838;
+}
+
+/* Tùy chỉnh cho đáp án khi được hiển thị */
+.answer .answer-content {
+    display: none;
+    margin-top: 15px;
+    font-style: italic;
+    color: #444;
+}
+
+.answer.show-answer .answer-content {
+    display: block;
+}
+

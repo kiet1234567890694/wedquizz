@@ -1,0 +1,516 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    /* background: linear-gradient(to right, #6f42c1, #703488); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header img {
+    max-width: 100%;
+    width: 120px;
+    max-height: 100%;
+    height: 150px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.header img:hover {
+    transform: scale(1.1);
+}
+
+.header input {
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #503287;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .login-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background: linear-gradient(to right, #8c01c3, #4e09cf);
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn:hover {
+    background: #5e11db;
+    transform: scale(1.05);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    background: linear-gradient(to bottom, #ffffff, #f1f2f6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.sidebar a {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #ab89d1;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.banner {
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffffff, #ffffff), 
+                url('../images/LOGO1.fc4be851.png'); /* Đường dẫn ảnh */
+    background-size: cover; /* Lấp đầy mà không bị méo */
+    background-position: center; /* Hiển thị tâm ảnh */
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+    height: 270px; /* Chiều cao của banner */
+}
+
+.banner img {
+    max-height: 100%;
+    height: 270px;
+
+}
+
+ .text {
+    flex: 1;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.banner .text h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.banner .text p {
+    margin: 5px 0 0;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.latest-news {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.latest-news h3 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.news-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-item {
+    width: 23%;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.news-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.news-item h4 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.news-item p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.news-item .author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.news-item .author img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.news-item .author span {
+    font-size: 12px;
+    color: #777;
+}
+
+.news-item .date {
+    font-size: 12px;
+    color: #777;
+}
+
+.news-item .category {
+    font-size: 12px;
+    color: #007bff;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .header input {
+        width: 200px;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .news-items {
+        flex-direction: column;
+    }
+
+    .news-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+#subjects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Điều chỉnh kích thước tối thiểu */
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.subject-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.subject-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.subject-item img {
+    max-width: 100px; /* Giới hạn kích thước hình ảnh */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.subject-item h4 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.subject-item p {
+    margin: 5px 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.subject-item .learn-more {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #28a745; /* Thay đổi màu thành xanh lá */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.subject-item .learn-more:hover {
+    background-color: #218838;
+}
+
+
+/* Kiểu cho nút "Làm Bài" */
+button {
+    background-color: #4CAF50;
+    /* Màu nền */
+    color: white;
+    /* Màu chữ */
+    border: none;
+    /* Bỏ viền mặc định */
+    padding: 10px 20px;
+    /* Khoảng cách giữa nội dung và biên */
+    text-align: center;
+    /* Căn giữa nội dung */
+    text-decoration: none;
+    /* Bỏ gạch dưới */
+    display: inline-block;
+    /* Hiển thị dưới dạng khối nội tuyến */
+    font-size: 16px;
+    /* Kích thước chữ */
+    cursor: pointer;
+    /* Con trỏ chuột khi di chuột qua */
+    border-radius: 5px;
+    /* Bo góc */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Hiệu ứng chuyển đổi khi di chuột */
+}
+
+/* Thay đổi màu nền khi di chuột qua */
+button:hover {
+    background-color: #45a049;
+    /* Màu nền khi di chuột qua */
+    transform: scale(1.05);
+    /* Phóng to nút một chút */
+}
+
+/* Thay đổi màu nền khi nút bị nhấn */
+button:active {
+    background-color: #388e3c;
+    /* Màu nền khi nhấn */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    /* Light background color */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    /* Padding for header */
+    background-color: #ffffff;
+    /* White background for header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Shadow for depth */
+}
+
+.header img {
+    height: 40px;
+    /* Logo height */
+}
+
+#search-input {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    /* Light border */
+    border-radius: 20px;
+    /* Rounded corners */
+    width: 300px;
+    /* Fixed width for search input */
+    margin: 0 20px;
+    /* Margin for spacing */
+}
+
+.login-btn {
+    background-color: #6f42c1;
+    /* Button color */
+    color: #fff;
+    /* Text color */
+    padding: 10px 20px;
+    /* Padding for button */
+    border-radius: 20px;
+    /* Rounded corners */
+    text-decoration: none;
+    /* No underline */
+    transition: background-color 0.3s;
+    /* Smooth transition */
+}
+
+.login-btn:hover {
+    background-color: #5a3791;
+    /* Darker shade on hover */
+}
+
+.content {
+    display: flex;
+    /* Flexbox for layout */
+    padding: 20px;
+    /* Padding for content area */
+}
+
+.sidebar {
+    width: 250px;
+    /* Fixed width for sidebar */
+    background-color: #ffffff;
+    /* White background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Shadow for depth */
+    padding: 20px;
+    /* Padding for sidebar */
+    margin-right: 20px;
+    /* Margin to separate from main content */
+}
+
+.sidebar ul {
+    list-style: none;
+    /* Remove bullet points */
+    padding: 0;
+    /* Remove padding */
+}
+
+.sidebar li {
+    margin: 15px 0;
+    /* Margin between items */
+}
+
+.sidebar a {
+    text-decoration: none;
+    /* No underline */
+    color: #343a40;
+    /* Dark text color */
+    display: flex;
+    /* Flexbox for icon and text */
+    align-items: center;
+    /* Center items vertically */
+    transition: color 0.3s;
+    /* Smooth transition */
+}
+
+.sidebar a:hover {
+    color: #6f42c1;
+    /* Change color on hover */
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    /* Space between icon and text */
+}
+
+.main-content {
+    flex: 1;
+    /* Take remaining space */
+    background-color: #ffffff;
+    /* White background */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Shadow for depth */
+    padding: 20px;
+    /* Padding for main content */
+}
+
+.banner {
+    position: relative;
+    /* Position for text overlay */
+    margin-bottom: 20px;
+    /* Space below banner */
+}
+
+.banner img {
+    width: 100%;
+    /* Full width */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.banner .text {
+    position: absolute;
+    /* Overlay text */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Centering */
+    color: white;
+    /* White text color */
+    text-align: center;
+    /* Center text */
+}
+
+.banner h2 {
+    font-size: 24px;
+    /* Font size for title */
+    margin: 0;
+    /* Remove margin */
+}
+
+.banner p {
+    font-size: 16px;
+    /* Font size for subtitle */
+    margin: 0;
+    /* Remove margin */
+}

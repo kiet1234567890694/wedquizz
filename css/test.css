@@ -1,0 +1,120 @@
+/* Cấu trúc chung của trang */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Màu nền trang nhẹ nhàng */
+    color: #333; /* Màu chữ chính */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Đảm bảo trang luôn phủ đầy màn hình */
+    flex-direction: column;
+
+}
+
+/* Phần tiêu đề môn học */
+#subject-name {
+    font-size: 50px;
+    font-weight: bold;
+    color: #4CAF50; /* Màu xanh cho tiêu đề */
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 5px; /* Thêm khoảng cách chữ */
+}
+
+/* Phần chứa câu hỏi */
+#quiz-container {
+    background-color: #fff; /* Màu nền của quiz */
+    padding: 25px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Đổ bóng cho khung */
+    border: 1px solid #e0e0e0; /* Thêm đường viền mỏng */
+}
+
+/* Câu hỏi và các lựa chọn */
+.question {
+    font-size: 22px;
+    margin-bottom: 60px;
+    color: #333;
+    font-weight: bold; /* In đậm câu hỏi */
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.options label {
+    display: block;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng cho lựa chọn */
+}
+
+.options input[type="radio"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+    transform: translateY(-2px); /* Hiệu ứng đẩy lên khi được chọn */
+}
+
+.options label:hover {
+    background-color: #f1f1f1; /* Màu nền khi hover */
+    transform: translateY(-5px); /* Hiệu ứng nhấc lên khi hover */
+}
+
+/* Timer (Đồng hồ đếm ngược) */
+#timer {
+    font-size: 30px;
+    font-weight: bold;
+    color: #FF6347; /* Màu đỏ cho đồng hồ */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng cho đồng hồ */
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+/* Nút Nộp bài */
+#submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Thêm bóng cho nút */
+}
+
+#submit-btn:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+    transform: translateY(-3px); /* Hiệu ứng nâng lên khi hover */
+}
+
+/* Hiển thị điểm số sau khi nộp bài */
+#score {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 30px;
+    color: #333;
+}
+
+/* Phần chuẩn bị hiển thị sau khi làm bài */
+#quiz-container {
+    padding-bottom: 50px; /* Đảm bảo có không gian cho các phần như Timer, Nút Nộp bài */
+}
